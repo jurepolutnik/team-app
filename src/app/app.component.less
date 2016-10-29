@@ -3,6 +3,8 @@
 main {
   margin: 20px;
   flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -12,13 +14,29 @@ footer {
 
 .container {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .event {
   padding: 20px;
+  display: flex;
 
+  .players-container {
+    flex-grow: 1;
+    padding: 10px;
+  }
+
+  .details-container {
+    padding: 10px;
+    h2 {
+      margin: 0;
+    }
+  }
 }
 
 .chat {
+  flex: 1;
   margin-top: 40px;
 }

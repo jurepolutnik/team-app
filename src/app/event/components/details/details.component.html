@@ -1,0 +1,15 @@
+<div >
+	<div>
+		<h2> {{event.date | date:'shortTime'}} </h2>
+		<h4> {{event.date | date:'shortDate'}} </h4>
+	</div>
+	<hr>
+	<div>
+		<!--<img src="http://placehold.it/250x250" />-->
+		<p>{{event.location}}</p>
+		<a target="_blank" href="http://maps.google.com/?q={{event.location}}">
+			<img src="https://maps.googleapis.com/maps/api/staticmap?center={{event.location}}&zoom=13&size=250x250&maptype=roadmap&markers=color:blue&key=AIzaSyCR2qd3ua_tH4Yt6CB9bCN0Att3eM-aYyw" />
+		</a>
+	</div>
+</div>
+

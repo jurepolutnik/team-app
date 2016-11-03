@@ -1,0 +1,20 @@
+<div class="form">
+	<div class="input-field">
+		<input id="member_name" type="text" [(ngModel)]="memberName" (keyup.enter)="submit()" />
+		<label for="member_name">Member name</label>
+	</div>
+	<button class="waves-effect waves-light btn" (click)="submit()" md-raised-button color=’primary’>Join!</button>
+</div>
+
+<div class="list">
+	<ul>
+		<li *ngFor="let member of event.members">
+			<div>
+				{{ member.name }}
+				<div class="right-align">
+					{{ member.created | amTimeAgo}} <a (click)="remove(member)"><i class="material-icons">highlight_off</i></a>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

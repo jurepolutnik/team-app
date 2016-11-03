@@ -1,10 +1,13 @@
-import { FirebaseModule } from './../firebase/index';
-import { PlayersModule } from './players/players.module';
-import { BrowserModule } from '@angular/platform-browser';
+import 'firebase';
+import { HomeModule } from './home/home.module';
+import { TeamModule } from './team/team.module';
+import { ChatModule } from './chat/chat.module';
+import { EventModule } from './event/event.module';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { StoreModule} from '@ngrx/store';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
+import { FirebaseModule } from './../firebase/index';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
@@ -17,11 +20,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    PlayersModule,
     FirebaseModule,
-    MaterializeModule
+    TeamModule,
+    EventModule,
+    ChatModule,
+    HomeModule,
+    MaterializeModule,
+    RouterModule.forRoot([], {useHash: false})
   ],
   bootstrap: [AppComponent]
 })

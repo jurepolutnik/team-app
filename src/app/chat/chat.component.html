@@ -1,0 +1,26 @@
+<div class="chat">
+	<div class="list">
+		<ul>
+			<li *ngFor="let message of room.messages">
+				<div>
+					{{ message | json}}
+					<div class="right-align">
+						<!--{{ message.created | date}}-->
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="form row">
+		<div class="input-field col s2">
+			<input id="chat_name" type="text" [(ngModel)]="user" />
+			<label for="chat_name">Name</label>
+		</div>
+		<div class="input-field col s8">
+			<input id="chat_text" type="text" [(ngModel)]="text" (keyup.enter)="submit()" />
+			<label for="chat_text">Message</label>
+		</div>
+		<button class="waves-effect waves-light btn col s2" (click)="submit()" md-raised-button color=’primary’>Send</button>
+
+	</div>
+</div>

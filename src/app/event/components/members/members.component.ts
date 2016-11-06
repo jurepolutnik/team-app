@@ -4,6 +4,8 @@ import { Event } from './../../../team/models/event';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'event-members',
   templateUrl: './members.component.html',
@@ -32,6 +34,7 @@ export class MembersComponent implements OnInit {
 
   clear(): void {
     this.memberName = '';
+    $('event-members .btn').focus();
   }
 
 }

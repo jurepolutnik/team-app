@@ -1,34 +1,19 @@
 	<div class="row">
-		<div class="input-field col s6">
-			<label for="birthdate">Birthdate</label>
-			<input [(ngModel)]='dt' id="birthdate" materialize="pickadate" [materializeParams]="[{selectMonths: true, selectYears: 15}]" type="text" />
+		<div class="col s6">
+			<label for="editor-datepicker">Date</label>
+			<input [(ngModel)]='date' id="editor-datepicker" materialize="pickadate" [materializeParams]="[{selectMonths: true, selectYears: 15, format: 'dd-mm-yyyy'}]" type="text" />
 		</div>
 	</div>
-
-  {{dt | json}}
-
-<div class="input-field col s12">
-	<label for="timepicker" >Time</label>
-	<input id="timepicker" materialize="pickatime" class="timepicker" type="time">
-</div>
-<!--<div class="row">
-	<div class="input-field col s8">
-    <input class="form-control" name="dp" [(ngModel)]="model" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker">
-		<label for="member_name">Date</label>
+	<div class="row">
+		<div class="input-field col s6">
+			<label for="editor-timepicker">Time</label>
+			<input  id="editor-timepicker" [(ngModel)]="time" materialize="pickatime" class="timepicker" type="text"/>
+			<!--<input id="editor-timepicker" type="text" [(ngModel)]="time" />-->
+		</div>
 	</div>
-</div>-->
-<!--<form class="form-inline">
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon" (click)="d.toggle()" >
-        <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-      </div>
-    </div>
-  </div>
-</form>-->
-
-<!--<ngb-timepicker [(ngModel)]="time" [spinners]="spinners"></ngb-timepicker>-->
-
-<hr/>
-<pre>Model: {{ model | json }}</pre>
-<pre>Model: {{ time | json }}</pre>
+	<div class="row">
+		<div class="input-field col s6">
+			<input id="editor-location" materialize type="text" [(ngModel)]="event.location" (keyup.enter)="submit()" />
+			<label for="editor-location">Location (e.g. Ljubljana, Rakuseva 24)</label>
+		</div>
+	</div>

@@ -3,17 +3,75 @@ chat {
 }
 
 .chat {
-    padding: 20px;
     display: flex;
     flex-direction: column;
 
+    .form {
+        margin: 0;
+        padding: 10px 20px;
+        background: #F7F7F7;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .user {
+            width: 100px;
+        }
+        .btn {
+            width: 100px;
+        }
+        .text {
+            flex: 1;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+
     .list {
         flex: 1;
+        margin: 20px;
         min-height: 350px;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
+
+.message {
+    display: flex;
+    padding: 5px;
+    flex-direction: row;
+
+    .message_icon {
+        margin-right: 10px;
+    }
+
+    .avatar {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 30px;       /* the same as your div height */
+
+        height: 30px;
+        width: 30px;
+        background: #2196F3;
+        border-radius: 5px;
+
+        font-weight: 500;
+        color: white;
+    }
+
+    .message_content {
+        flex: 1;
 
     }
 
-    .item {
-
+    .message_header {
+        .user {
+            font-weight: 900;
+        }
+        .date {
+            color: #9e9ea6;
+            font-size: 75%
+        }
     }
 }

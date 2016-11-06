@@ -9,6 +9,7 @@ import { EventComponent } from './event.component';
 import { MembersComponent } from './components/members/members.component';
 import { DetailsComponent } from './components/details/details.component';
 import { EditorComponent } from './components/editor/editor.component';
+import { EditorDialogComponent } from './components/editor-dialog/editor-dialog.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { EditorComponent } from './components/editor/editor.component';
   ],
   providers: [
   ],
-  declarations: [EventComponent, MembersComponent, DetailsComponent, EditorComponent],
-  exports: [EventComponent, EditorComponent]
+  declarations: [EventComponent, MembersComponent, DetailsComponent, EditorComponent, EditorDialogComponent],
+  exports: [EventComponent, MembersComponent, DetailsComponent, EditorComponent, EditorDialogComponent]
 })
 export class EventModule { }

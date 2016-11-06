@@ -13,10 +13,38 @@
 }
 
 .list {
-    max-height: 325px;
+    max-height: 370px;
     overflow-y: auto;
 }
 
-.item {
+.member {
+    display: flex;
+    flex-direction: row;
+    // align-content: center;
     padding: 5px;
+
+    line-height: 24px;
+    vertical-align: middle;
+
+    &:hover {
+        background: #f7f7f7;
+    }
+
+    .name {
+        flex:1;
+    }
+    .date {
+        color: #9e9ea6;
+        font-size: 75%;
+        padding: 0 10px;
+    }
+    .delete {
+        a {
+            color: #9e9ea6;
+            cursor: pointer;
+        }
+        a:hover {
+            color: red;
+        }
+    }
 }

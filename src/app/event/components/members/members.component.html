@@ -8,12 +8,16 @@
 
 <div class="list">
 	<ul>
+		<li *ngIf="event.members.length === 0">
+			No one yet...
+		</li>
 		<li *ngFor="let member of event.members">
-			<div>
-				{{ member.name }}
-				<div class="right-align">
-					{{ member.created | amTimeAgo}} <a (click)="remove(member)"><i class="material-icons">highlight_off</i></a>
-				</div>
+			<div class="member">
+				<span class="name"> {{ member.name }} </span>
+				<span class="date"> {{ member.created | date:"hh:mm, d MMM" }} </span>
+				<span class="delete right-align">
+					<a (click)="remove(member)"><i class="material-icons">highlight_off</i></a>
+				</span>
 			</div>
 		</li>
 	</ul>

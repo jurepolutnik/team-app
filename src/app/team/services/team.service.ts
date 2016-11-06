@@ -10,7 +10,7 @@ import 'rxjs/Rx'
 @Injectable()
 export class TeamService {
 
-  team$: Observable<Team>;
+  team$: FirebaseObjectObservable<Team>;
   event$: Observable<Event>;
   room$: Observable<Room>;
   members$: FirebaseListObservable<any[]>;
@@ -27,6 +27,16 @@ export class TeamService {
 
   getEvent(): Observable<Event> {
     return this.event$;
+  }
+
+  createEvent(event: Event) {
+    var eventKey = this.af.database.list('/events/').push({date: event.date.getTime(), location:event.location}).key;
+    this.team$.update({ event: eventKey})
+    // this.af.database.list('/events/').push({date: new Date(), location:'celje'}).then(fbEvent => {
+    //   debugger;
+    //   console.log(fbEvent)
+    //   this.team$.update({ event: fbEvent.key})
+    // });
   }
 
   getRoom(): Observable<Room> {

@@ -1,26 +1,36 @@
 <div class="chat">
-	<div class="list">
+	<div #messageList class="list">
 		<ul>
-			<li *ngFor="let message of room.messages">
-				<div>
-					{{ message | json}}
-					<div class="right-align">
-						<!--{{ message.created | date}}-->
+			<li *ngFor="let message of room.messages; let idx = index; trackBy: message?.$key">
+				<div class="message">
+					<div class="message_icon">
+						<div class="avatar">
+							{{ getInitials (message.user) }}
+						</div>
+					</div>
+					<div class="message_content">
+						<div class="message_header">
+							<span class="user">{{message.user}}</span>
+							<span class="date">{{message.created | date:'hh:mm (MMM d)'}}</span>
+						</div>
+						<div class="message_body">
+							<div [innerHtml]="message.text | linkify"></div>
+						</div>
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
-	<div class="form row">
-		<div class="input-field col s2">
+	<div class="form">
+		<div class="input-field user">
 			<input id="chat_name" type="text" [(ngModel)]="user" />
 			<label for="chat_name">Name</label>
 		</div>
-		<div class="input-field col s8">
+		<div class="input-field text">
 			<input id="chat_text" type="text" [(ngModel)]="text" (keyup.enter)="submit()" />
 			<label for="chat_text">Message</label>
 		</div>
-		<button class="waves-effect waves-light btn col s2" (click)="submit()" md-raised-button color=’primary’>Send</button>
+		<button class="waves-effect waves-light btn" (click)="submit()" md-raised-button color=’primary’>Send</button>
 
 	</div>
 </div>

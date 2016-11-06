@@ -6,6 +6,7 @@ export class Event {
 
     public static convertFromFb(fbEvent) {
         let event = new Event();
+        event.$key = fbEvent.$key;
         event.date = new Date(fbEvent.date);
         event.location = fbEvent.location;
         event.members = [];

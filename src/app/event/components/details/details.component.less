@@ -5,6 +5,14 @@
 .details{
     display: flex;
     flex-direction: row;
+    .datetime {
+        .date {
+            font-size: 2.5rem;
+        }
+        .time {
+            font-size: 2rem;
+        }
+    }
 
     .location {
         flex: 1;
@@ -18,5 +26,19 @@
 
     .map {
         padding: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .date {
+        font-size: 2rem;
+    }
+    .time {
+        font-size: 1.5rem;
+    }
+    .map {
+        img {
+            height: 78px;
+        }
     }
 }

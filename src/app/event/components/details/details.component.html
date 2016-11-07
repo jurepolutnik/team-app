@@ -1,7 +1,7 @@
 <div class="details">
-	<div class="date">
-		<h2> {{event.date | date:'shortTime'}} </h2>
-		<h4> {{event.date | date:'shortDate'}} </h4>
+	<div class="datetime">
+		<div class="date"> {{event.date | date:'shortTime'}} </div>
+		<div class="time"> {{event.date | date:'shortDate'}} </div>
 	</div>
 	<div class="location right-align">
 		<div class="map">

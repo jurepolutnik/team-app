@@ -74,4 +74,19 @@ chat {
             font-size: 75%
         }
     }
+
+    .embeded {
+        width: 250px;
+    }
+}
+
+
+.message /deep/ a {
+    word-break: break-all;
+}
+
+@media (max-width: 500px) {
+        .message /deep/ .embeded {
+            width: 200px;
+        }
 }

@@ -55,7 +55,7 @@ export class LinkifyPipe implements PipeTransform {
 
 
     if (pattern3.test(url)) {
-      var replacement = '<a href="$1" target="_blank"><img width="300" class="sml" src="$1" /></a><br />';
+      var replacement = '<a href="$1" target="_blank"><img width="300" class="embeded" src="$1" /></a><br />';
       return url.replace(pattern3, replacement);
     }
 

@@ -1,12 +1,13 @@
 <div class="details">
-	<div class="datetime">
+	<div class="info">
 		<div class="date"> {{event.date | date:'shortTime'}} </div>
 		<div class="time"> {{event.date | date:'shortDate'}} </div>
+		<div class="location"> {{event.location}} </div>
 	</div>
-	<div class="location right-align">
+	<div class="map-container right-align">
 		<div class="map">
 			<a target="_blank" href="http://maps.google.com/?q={{event.location}}">
-				<img src="https://maps.googleapis.com/maps/api/staticmap?center={{event.location}}&zoom=13&size=150x150&maptype=roadmap&markers=color:blue&key=AIzaSyCR2qd3ua_tH4Yt6CB9bCN0Att3eM-aYyw">
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center={{event.location}}&zoom=13&size=130x130&maptype=roadmap&markers=color:blue&key=AIzaSyCR2qd3ua_tH4Yt6CB9bCN0Att3eM-aYyw">
 			</a>
 		</div>
 	</div>

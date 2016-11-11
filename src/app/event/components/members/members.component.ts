@@ -19,11 +19,11 @@ export class MembersComponent implements OnInit {
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {
-
+    this.memberName = localStorage.getItem('user');
   }
 
   submit(): void {
-    console.log(this.memberName);
+    localStorage.setItem('user', this.memberName)
     this.teamService.addMember(this.event, this.memberName);
     this.clear();
   }

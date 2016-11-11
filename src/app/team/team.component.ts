@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Room } from './models/room';
 import { AngularFire } from 'angularfire2';
 import { Event } from './models/event';
@@ -9,7 +10,8 @@ import { Component, OnInit, NgZone } from '@angular/core';
 @Component({
   selector: 'team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.less']
+  styleUrls: ['./team.component.less'],
+  providers: [TeamService]
 })
 export class TeamComponent implements OnInit {
 
@@ -17,7 +19,10 @@ export class TeamComponent implements OnInit {
   room: Room;
   event: Event;
 
-  constructor(private zone:NgZone, private teamService: TeamService) { }
+  constructor(private zone:NgZone, private activatedRoute: ActivatedRoute, private teamService: TeamService) {
+    activatedRoute.params.subscribe(params => console.log(params))
+
+  }
 
   ngOnInit() {
     // WORKAROUND [bug] Firebase not working in zone

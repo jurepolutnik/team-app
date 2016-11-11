@@ -5,6 +5,7 @@ import { Team } from './../models/team';
 import { Event } from './../models/event';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/Rx'
 
 @Injectable()
@@ -15,10 +16,16 @@ export class TeamService {
   room$: Observable<Room>;
   members$: FirebaseListObservable<any[]>;
 
-  constructor(private af: AngularFire) {
-    this.team$ = af.database.object('/teams/fuzbal', {});
-    this.event$ = this.team$.flatMap(team => af.database.object('/events/'+team.event)).map(fbEvent => Event.convertFromFb(fbEvent));
-    this.room$ = this.team$.flatMap(team => af.database.object('/rooms/'+team.room)).map(fbRoom => Room.convertFromFb(fbRoom));
+  constructor(private af: AngularFire, private activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe(params => this.initialize(params['id']))
+    console.log(activatedRoute);
+ }
+
+ initialize (id) {
+    this.team$ = this.af.database.object('/teams/'+id, {});
+    this.event$ = this.team$.flatMap(team => this.af.database.object('/events/'+team.event)).map(fbEvent => Event.convertFromFb(fbEvent));
+    this.room$ = this.team$.flatMap(team => this.af.database.object('/rooms/'+team.room)).map(fbRoom => Room.convertFromFb(fbRoom));
+
  }
 
   getTeam(): Observable<Team> {

@@ -17,7 +17,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   constructor(private teamService: TeamService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.user = localStorage.getItem('user');
+  }
 
   submit() {
     let message = new Message(this.user, this.text);

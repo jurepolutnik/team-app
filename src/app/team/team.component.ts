@@ -19,9 +19,7 @@ export class TeamComponent implements OnInit {
   room: Room;
   event: Event;
 
-  constructor(private zone:NgZone, private activatedRoute: ActivatedRoute, private teamService: TeamService) {
-    activatedRoute.params.subscribe(params => console.log(params))
-
+  constructor(private zone:NgZone, private teamService: TeamService) {
   }
 
   ngOnInit() {

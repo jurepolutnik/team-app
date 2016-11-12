@@ -8,12 +8,35 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-	<app-root>Loading...</app-root>
+	<app-root>
+		<div class="app-shell">
+			<nav class="blue">
+				<div class="nav-wrapper row">
+					<div class="col s12">
+						<a href="#" class="brand-logo"><i class="material-icons">android</i>Loading ...</a>
+						<ul id="nav-mobile" class="right hide-on-med-and-down">
+							<li><a materialize="leanModal" [materializeParams]="[{dismissible: true}]" href="#editor-dialog">Create event</a></li>
+							<li><a href><i class="material-icons">settings</i></a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</app-root>
+
+	<script>
+	  if (location.hostname === 'localhost') return;
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(registration) {
+			  console.log(registration);
+                console.log('Service Worker Registered');
+          });
+      }
+    </script>
 </body>
 
 </html>

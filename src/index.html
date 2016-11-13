@@ -3,6 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name='description' content=''>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='manifest' href='/manifest.json'>
+	<meta name='mobile-web-app-capable' content='yes'>
+	<meta name='application-name' content='Fuzbal'>
 	<title>Fuzbal</title>
 	<base href="/">
 
@@ -10,18 +15,12 @@
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body>
+<body style="margin: 0px">
 	<app-root>
 		<div class="app-shell">
-			<nav class="blue">
-				<div class="nav-wrapper row">
-					<div class="col s12">
-						<a href="#" class="brand-logo"><i class="material-icons">android</i>Loading ...</a>
-						<ul id="nav-mobile" class="right hide-on-med-and-down">
-							<li><a materialize="leanModal" [materializeParams]="[{dismissible: true}]" href="#editor-dialog">Create event</a></li>
-							<li><a href><i class="material-icons">settings</i></a></li>
-						</ul>
-					</div>
+			<nav style="background: #2196F3; height: 64px; width: 100%;">
+				<div style="color: #FFFFFF; font-size: 2.1rem; margin-left: 20px; display: inline-block; line-height: 60px;">
+					Loading ...
 				</div>
 			</nav>
 		</div>
@@ -30,11 +29,13 @@
 	<script>
 	  if (location.hostname === 'localhost') return;
       if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(function(registration) {
-			  console.log(registration);
-                console.log('Service Worker Registered');
-          });
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) { 
+			  console.log('Service Worker Registered');
+			  registration.update();
+          }).catch(function(error) { 
+			  console.log('Service Worker Registration FAILED: '+error);
+		  });
       }
     </script>
 </body>

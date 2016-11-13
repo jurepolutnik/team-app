@@ -1,18 +1,18 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v1';
+const PRECACHE = 'precache-v50';
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
+  // 'index.html',
+  // './', // Alias for index.html
 ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
-  console.log ('install service worker');
+  console.log ('install service worker: '+ (new Date()));
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
@@ -22,7 +22,7 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-    console.log ('activate service worker');
+    console.log ('activate service worker: ' + (new Date()));
   // const currentCaches = [PRECACHE, RUNTIME];
   const currentCaches = [PRECACHE];
   event.waitUntil(
@@ -40,6 +40,11 @@ self.addEventListener('activate', event => {
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
+  if(new URL(event.request.url).pathname === '/service-worker.js'){
+    console.log(event.request.url);
+    event.respondWith(fetch(event.request));
+    return;
+  }
   // Skip cross-origin requests, like those for Google Analytics.
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
@@ -51,6 +56,7 @@ self.addEventListener('fetch', event => {
         return caches.open(RUNTIME).then(cache => {
           return fetch(event.request).then(response => {
             // Put a copy of the response in the runtime cache.
+
             return cache.put(event.request, response.clone()).then(() => {
               return response;
             });

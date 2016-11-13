@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Fuzbal",
-  "launch_path": "/index.html",
+  "launch_path": "/t/fuzbal",
   "description": "Fuzbal",
   "icons": {
     "128": "/favicon.ico"

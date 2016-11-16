@@ -22,13 +22,11 @@
 		</ul>
 	</div>
 	<div class="form">
-		<div class="input-field user">
-			<input id="chat_name" type="text" [(ngModel)]="user" />
-			<label for="chat_name">Name</label>
+		<div class="user">
+			<input id="chat_name" type="text" placeholder="Name" [(ngModel)]="user" />
 		</div>
-		<div class="input-field text">
-			<input id="chat_text" type="text" [(ngModel)]="text" (keyup.enter)="submit()" />
-			<label for="chat_text">Message</label>
+		<div class="text">
+			<input id="chat_text" placeholder="Message" type="text" [(ngModel)]="text" (keyup.enter)="submit()" />
 		</div>
 		<button class="waves-effect waves-light btn" (click)="submit()" md-raised-button color=’primary’>Send</button>
 

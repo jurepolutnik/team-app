@@ -1,7 +1,6 @@
 <div class="form">
 	<div class="input-field">
-		<input id="member_name" type="text" [(ngModel)]="memberName" (keyup.enter)="submit()" />
-		<label for="member_name">Member name</label>
+		<input id="member_name" type="text" placeholder="Name" [(ngModel)]="memberName" (keyup.enter)="submit()" />
 	</div>
 	<button class="waves-effect waves-light btn" (click)="submit()" md-raised-button color=’primary’>Join!</button>
 </div>
@@ -21,4 +20,9 @@
 			</div>
 		</li>
 	</ul>
+</div>
+<div>
+	<hr style="border: 0; border-top: 1px solid #ccc;"/>
+	<div>Participants: <b style='font-size: 1.2rem;'>{{event.members.length}}</b></div>
+	<div>Event in: <span style="font-style: italic;">{{toDate()}}</span></div>
 </div>

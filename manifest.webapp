@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "name": "Fuzbal",
+  "launch_path": "/t/fuzbal",
+  "description": "Fuzbal",
+  "icons": {
+    "128": "/favicon.ico"
+  },
+  "developer": {
+    "name": "Jure Polutnik",
+    "url": "http://jurepolutnik.github.io"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Team App",
+      "description": "Team App"
+    }
+  }

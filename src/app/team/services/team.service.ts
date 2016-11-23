@@ -55,7 +55,8 @@ export class TeamService {
   }
 
   removeMember(event: Event, member: Player) {
-    this.af.database.list('/events/'+event.$key+'/members').remove(member.$key);
+    // this.af.database.list('/events/'+event.$key+'/members').remove(member.$key);
+    this.af.database.object('/events/'+event.$key+'/members/'+member.$key).update({removed: {'.sv':'timestamp'}});
   }
 
   addMessage(room: Room, message: Message) {

@@ -2,7 +2,7 @@ export class Event {
     $key?: string;
     date?: Date;
     location?: string;
-    members?: String[];
+    members?: any[];
 
     public static convertFromFb(fbEvent) {
         let event = new Event();
@@ -13,7 +13,8 @@ export class Event {
         for (var key in fbEvent.members) {
             let member = fbEvent.members[key];
             member.$key = key;
-            member.created = new Date(member.created)
+            member.created = new Date(member.created);
+            member.removed = member.removed ? new Date(member.removed) : null;
             event.members.push(member);
         }
         return event;

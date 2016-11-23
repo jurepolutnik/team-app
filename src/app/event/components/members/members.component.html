@@ -10,7 +10,7 @@
 		<li *ngIf="event.members.length === 0">
 			No one yet...
 		</li>
-		<li *ngFor="let member of event.members">
+		<li *ngFor="let member of members">
 			<div class="member">
 				<span class="name"> {{ member.name }} </span>
 				<span class="date"> {{ member.created | date:"hh:mm, d MMM" }} </span>
@@ -23,6 +23,6 @@
 </div>
 <div>
 	<hr style="border: 0; border-top: 1px solid #ccc;"/>
-	<div>Participants: <b style='font-size: 1.2rem;'>{{event.members.length}}</b></div>
+	<div>Participants: <b style='font-size: 1.2rem;'>{{members.length}}</b></div>
 	<div>Event in: <span style="font-style: italic;">{{toDate()}}</span></div>
 </div>

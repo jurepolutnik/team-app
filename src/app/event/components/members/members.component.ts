@@ -16,11 +16,16 @@ export class MembersComponent implements OnInit {
 
   @Input() event:Event;
   private memberName: string;
+  private members: any[];
 
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {
     this.memberName = localStorage.getItem('user');
+  }
+
+  ngOnChanges () {
+    this.members = this.event.members.filter(member => !member.removed);
   }
 
   toDate () {

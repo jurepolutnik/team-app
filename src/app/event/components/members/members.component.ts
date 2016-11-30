@@ -16,11 +16,16 @@ export class MembersComponent implements OnInit {
 
   @Input() event:Event;
   private memberName: string;
+  private members: any[];
 
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {
     this.memberName = localStorage.getItem('user');
+  }
+
+  ngOnChanges () {
+    this.members = this.event.members.filter(member => !member.removed);
   }
 
   toDate () {
@@ -29,7 +34,7 @@ export class MembersComponent implements OnInit {
     let diff = moment(to).diff(moment(now))
     let d = moment.duration(diff);
     if (d.days() === 1) return `${d.days()} day ${d.hours()} hours ${d.minutes()} minutes`
-    if (d.days() > 1) return `${d.days()} days ${d.hours()} hours ${d.minutes()} minuets`
+    if (d.days() > 1) return `${d.days()} days ${d.hours()} hours ${d.minutes()} minutes`
     if (d.hours() > 0) return `${d.hours()} hours ${d.minutes()} minutes`
     return `${d.hours()} hours ${d.minutes()} minutes`
   }

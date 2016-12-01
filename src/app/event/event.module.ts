@@ -1,4 +1,3 @@
-import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +16,6 @@ import { EditorDialogComponent } from './components/editor-dialog/editor-dialog.
     FormsModule,
     CommonModule,
     MomentModule,
-    MaterializeModule
   ],
   providers: [
   ],

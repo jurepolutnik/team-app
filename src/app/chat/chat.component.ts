@@ -8,8 +8,8 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } fro
   styleUrls: ['./chat.component.less']
 })
 export class ChatComponent implements OnInit, AfterViewChecked {
-  @Input() room: Room
-  @ViewChild('messageList') private messageList: ElementRef;
+  @Input() room: Room;
+  @ViewChild('messageList') messageList: ElementRef;
 
 
   private user: string;

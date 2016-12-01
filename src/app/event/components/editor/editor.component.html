@@ -1,19 +1,19 @@
 	<div class="row">
 		<div class="col s6">
 			<label for="editor-datepicker">Date</label>
-			<input [(ngModel)]='date' id="editor-datepicker" materialize="pickadate" [materializeParams]="[{selectMonths: true, selectYears: 15, format: 'dd-mm-yyyy'}]" type="text" />
+			<input [(ngModel)]='date' id="editor-datepicker"  type="text" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-field col s6">
 			<label for="editor-timepicker">Time</label>
-			<input  id="editor-timepicker" [(ngModel)]="time" materialize="pickatime" class="timepicker" type="text"/>
+			<input  id="editor-timepicker" [(ngModel)]="time"  class="timepicker" type="text"/>
 			<!--<input id="editor-timepicker" type="text" [(ngModel)]="time" />-->
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-field col s6">
-			<input id="editor-location" materialize type="text" [(ngModel)]="event.location" (keyup.enter)="submit()" />
+			<input id="editor-location" type="text" [(ngModel)]="event.location" (keyup.enter)="submit()" />
 			<label for="editor-location">Location (e.g. Ljubljana, Rakuseva 24)</label>
 		</div>
 	</div>

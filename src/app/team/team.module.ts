@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TeamComponent } from './team.component';
 import { HeaderComponent } from './header/header.component';
-import { MaterializeModule } from 'angular2-materialize';
 
 const routes: Routes = [
   { path: 't/:id', component: TeamComponent }
@@ -18,7 +17,6 @@ const routes: Routes = [
     CommonModule,
     EventModule,
     ChatModule,
-    MaterializeModule,
     RouterModule.forChild(routes)
   ],
   providers: [TeamService],

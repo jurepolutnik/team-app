@@ -34,11 +34,12 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   getInitials(user: string) {
     if (user === '(anonymous)') return 'A';
+    console.log(user);
 
-    let s = user.split(' ');
+    let s = user.trim().split(' ');
 
     if (s.length === 1) {
-      return user[0].toUpperCase();
+      return s[0][0].toUpperCase();
     } else {
       return (s[0][0] + s[1][0]).toUpperCase();
     }
